@@ -1,0 +1,82 @@
+@font-face {
+  font-family: 'sodo_sansregular';
+  src: url('https://sajid-ccp-2020-demo.s3.amazonaws.com/font/sodosans-regular-webfont.woff2') format('woff2'),
+       url('https://sajid-ccp-2020-demo.s3.amazonaws.com/font/sodosans-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 0.2fr);
+    grid-template-rows: repeat(2, 0fr);
+    gap: 20px;
+  }
+
+  .body {
+      background-color: #f2f2f2;
+      display: flex;
+  }
+
+  .panel1 {
+    width: 600px;
+    background: #f2f2f2;
+    /* Just so it's visible */
+  }
+  .panel2 {
+    /*flex: 1;*/
+    /* Grow to rest of container */
+    flex: 1;
+    background: #f2f2f2;
+    /* Just so it's visible */
+  }
+  .menu-header h3 {
+    font-size: 1.6rem;
+  }
+
+  .menu-header {
+    font-size : 1.5 rem;
+    font-family: sodo_sansregular;
+    text-align: center;
+    background-color: #f2f2f2;
+    width: 400px;
+    padding-left: 80px;
+  }
+  
+  .item {
+    padding: 20px;
+    width: 250px;
+  }
+
+  .item-image {
+    width: 150px;
+    height: auto;
+    padding-left: 35px;
+  }
+
+  .item-name {
+    text-align: center;
+    font-family: sodo_sansregular;
+  }
+
+  .item-name p {
+    font-size : 1 rem !important;
+  }
+  .item-price {
+    text-align: center;
+    font-size : 0.9 rem !important;
+    font-family: sodo_sansregular;
+  }
+  
+  .item-nutrition {
+    text-align: center;
+    font-size : 0.4 rem !important;
+    font-family: sodo_sansregular;
+  }
+
+  .out-of-stock-item {
+    padding: 20px;
+    width: 250px;
+    text-decoration: line-through;
+  }
+  
