@@ -39,7 +39,7 @@
     font-family: sodo_sansregular;
     text-align: center;
     background-color: #f2f2f2;
-    width: 400px;
+    /*width: 400px;*/
     padding-left: 80px;
   }
   
@@ -80,12 +80,3 @@
     text-decoration: line-through;
   }
   
-  .h-item {
-    overflow: hidden; /* clears the float */
-  }
-  
-  .h-item-info {
-    float: left;
-    width: 50%;
-    height: 100px;
-  }

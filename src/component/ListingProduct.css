@@ -1,0 +1,21 @@
+.linelisting-item {
+ 
+}
+
+.linelisting-price, .linelisting-nutrition {
+  display: inline-block;
+  margin: 0 10px; /* optional, adds some spacing between items */
+}
+.linelisting-nutrition {
+  display: inline-block;
+  text-align: right;
+}
+.linelisting-name {
+  display: inline-block;
+  text-align: left;
+  font-family: sodo_sansregular;
+  margin-left: 25px;
+  width: 425px;
+  margin-bottom: -5px;
+  margin-top: 5px;
+}

@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import ReturningProduct from './ReturningProduct';
-import MainProduct from './MainProduct';
+import ListingProduct from './ListingProduct';
 
-function QuadPromotion(props) {
+function LineListing(props) {
     const [data, setData] = useState([]);
     const [menuItem, setMenuItem] = useState([]);
     
     
     useEffect(() => {
       const fetchData = async () => {
-        const response = await fetch('https://9ea8a0e7-683e-4607-abbd-abaa1abf204a.mock.pstmn.io/menu?test=123');
+        const response = await fetch('https://9ea8a0e7-683e-4607-abbd-abaa1abf204a.mock.pstmn.io/linelisting');
         const jsonData = await response.json();
         console.log(jsonData);
         setMenuItem(jsonData.menuItems);
@@ -25,12 +25,12 @@ function QuadPromotion(props) {
     <div className='body'>
       <div id='panel1' className= 'panel1'>
           <Header titles={data}/>
-          <div className='container'>
+          <div>
           {menuItem.map((item, index) => {
               if (item.menuStatus === 'OutOfStock') {
                 return <ReturningProduct product={item}/>;
               } else {
-                return <MainProduct product={item}/>;
+                return <ListingProduct product={item}/>;
               }
             })}
           </div>
@@ -39,4 +39,4 @@ function QuadPromotion(props) {
   );
 }
 
-export default QuadPromotion;
+export default LineListing;

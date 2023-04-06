@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Menu.css';
 import QuadPromotion from './component/QuadPromotion';
 import TrioPromotion from './component/TrioPromotion';
+import LineListing from './component/LineListing';
 
 function App() {
   const [promoType, setPromoType] = useState([]);
@@ -39,6 +40,8 @@ function App() {
     return <QuadPromotion />;
   } else if (promoType === 'trio') {
     return <TrioPromotion />;
+  } else if (promoType === 'listing') {
+    return <LineListing />;
   }
 }
 
