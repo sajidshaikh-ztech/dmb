@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import './Menu.css';
-import ReturningProduct from './component/ReturningProduct';
-import MainProduct from './component/MainProduct';
-import Header from './component/Header';
+import QuadPromotion from './component/QuadPromotion';
+import TrioPromotion from './component/TrioPromotion';
 
 function App() {
-  const [data, setData] = useState([]);
-  const [menuItem, setMenuItem] = useState([]);
-  
+  const [promoType, setPromoType] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('https://9ea8a0e7-683e-4607-abbd-abaa1abf204a.mock.pstmn.io/menu?test=123');
+      const response = await fetch('https://9ea8a0e7-683e-4607-abbd-abaa1abf204a.mock.pstmn.io/paneldetail');
       const jsonData = await response.json();
+      // API to get what kind of promo it is. 
+      // API returns the promotion type, quad , one , two , line listing etc. 
+      // Will give me promotion details as well
+      // Based on promo type include the correct component. 
       console.log(jsonData);
-      setMenuItem(jsonData.menuItems);
-      console.log(jsonData.menuItems);
-      setData(jsonData);
+      setPromoType(jsonData.promoType);
     };
 
     fetchData();
@@ -36,22 +35,11 @@ function App() {
       });
   };*/
 
-  return (
-    <div className='body'>
-      <div id='panel1' className='panel1'>
-          <Header titles={data}/>
-          <div className='container'>
-          {menuItem.map((item, index) => {
-              if (item.menuStatus === 'OutOfStock') {
-                return <ReturningProduct product={item}/>;
-              } else {
-                return <MainProduct product={item}/>;
-              }
-            })}
-          </div>
-        </div>
-    </div>
-  );
+  if (promoType === 'quad') {
+    return <QuadPromotion />;
+  } else if (promoType === 'trio') {
+    return <TrioPromotion />;
+  }
 }
 
 export default App;
