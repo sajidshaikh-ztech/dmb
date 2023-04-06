@@ -1,0 +1,15 @@
+.h-item {
+    overflow: hidden; /* clears the float */
+  }
+  
+  .h-item-info {
+    float: left;
+    width: 50%;
+    height: 200px;
+  }
+
+  .h-item-image {
+    width: 200px;
+    height: auto;
+    padding: 35px;
+  }
