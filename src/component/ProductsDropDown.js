@@ -7,7 +7,7 @@ function ProductsDropDown(props) {
   }
 
   return (
-    <div className='container'>
+    <div className='config-container'>
       <label htmlFor="dropdown">Products</label>
       <select id="dropdown" value={props.option} onChange={handleOptionChange}>
         <option value="breakfast">Breakfast</option>

@@ -7,7 +7,7 @@ function PriceDropDown(props) {
   }
 
   return (
-    <div className='container'>
+    <div className='config-container'>
       <label htmlFor="dropdown">Pricing</label>
       <select id="dropdown" value={props.discount} onChange={handleOptionChange}>
         <option value="0">Group 1 (normal)</option>

@@ -10,7 +10,7 @@ function TrioPromotion(props) {
     
     useEffect(() => {
       const fetchData = async () => {
-        const response = await fetch('https://9ea8a0e7-683e-4607-abbd-abaa1abf204a.mock.pstmn.io/trio');
+        const response = await fetch('https://ximqh5cncg.execute-api.us-east-1.amazonaws.com/dev/trio');
         const jsonData = await response.json();
         console.log(jsonData);
         setMenuItem(jsonData.menuItems);
