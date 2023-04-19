@@ -12,7 +12,8 @@ function App() {
   
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('https://9ea8a0e7-683e-4607-abbd-abaa1abf204a.mock.pstmn.io/paneldetail?store='+ storeNumber +'&screen=' + screenNumber);
+      //const response = await fetch('https://9ea8a0e7-683e-4607-abbd-abaa1abf204a.mock.pstmn.io/paneldetail?store='+ storeNumber +'&screen=' + screenNumber);
+      const response = await fetch('https://ximqh5cncg.execute-api.us-east-1.amazonaws.com/dev/paneldetail?store='+ storeNumber +'&screen=' + screenNumber);
       const jsonData = await response.json();
       // API to get what kind of promo it is. 
       // API returns the promotion type, quad , one , two , line listing etc. 

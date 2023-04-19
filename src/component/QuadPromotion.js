@@ -3,21 +3,27 @@ import Header from './Header';
 import ReturningProduct from './ReturningProduct';
 import MainProduct from './MainProduct';
 import ProductsDropDown from './ProductsDropDown';
-import userEvent from '@testing-library/user-event';
+import PriceDropDown from './PriceDropDown';
 
 function QuadPromotion(props) {
     const [data, setData] = useState([]);
     const [menuItem, setMenuItem] = useState([]);
-    const [optionValue, setOptionValue] = useState('');
+    const [optionValue, setOptionValue] = useState('breakfast');
+    const [discount, setDiscount] = useState(0);
 
     function handleOptionChange(newValue) {
       setOptionValue(newValue);
       console.log('Option Value ' + optionValue);
     }
   
+    function applyDiscount(newValue) {
+      setDiscount(newValue);
+      console.log('Price value ' + discount)
+    }
+
     useEffect(() => {
       const fetchData = async () => {
-        const response = await fetch('https://9ea8a0e7-683e-4607-abbd-abaa1abf204a.mock.pstmn.io/menu?option=' + optionValue);
+        const response = await fetch('https://ximqh5cncg.execute-api.us-east-1.amazonaws.com/dev/menu?option=' + optionValue);
         const jsonData = await response.json();
         console.log(jsonData);
         setMenuItem(jsonData.menuItems);
@@ -30,7 +36,7 @@ function QuadPromotion(props) {
 
     useEffect(() => {
       const fetchData = async () => {
-        const response = await fetch('https://9ea8a0e7-683e-4607-abbd-abaa1abf204a.mock.pstmn.io/menu?option=' + optionValue);
+        const response = await fetch('https://ximqh5cncg.execute-api.us-east-1.amazonaws.com/dev/menu?option=' + optionValue);
         const jsonData = await response.json();
         console.log(jsonData);
         setMenuItem(jsonData.menuItems);
@@ -50,11 +56,14 @@ function QuadPromotion(props) {
               if (item.menuStatus === 'OutOfStock') {
                 return <ReturningProduct product={item}/>;
               } else {
-                return <MainProduct product={item}/>;
+                return <MainProduct product={item} discount={discount}/>;
               }
             })}
           </div>
-          <ProductsDropDown option={optionValue} onChange={handleOptionChange} />
+          <div className='container'>
+            <ProductsDropDown option={optionValue} onChange={handleOptionChange} />
+            <PriceDropDown discount={discount} onChange={applyDiscount} />
+          </div>
       </div>
     </div>
   );

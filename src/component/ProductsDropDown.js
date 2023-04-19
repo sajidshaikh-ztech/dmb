@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function ProductsDropDown(props) {
-  const [selectedOption, setSelectedOption] = useState('');
-
   function handleOptionChange(event) {
     props.onChange(event.target.value);
-    //setSelectedOption(event.target.value);
+    
   }
 
   return (
-    <div>
+    <div className='container'>
       <label htmlFor="dropdown">Products</label>
       <select id="dropdown" value={props.option} onChange={handleOptionChange}>
         <option value="breakfast">Breakfast</option>
