@@ -10,11 +10,9 @@ function LineListing(props) {
     
     useEffect(() => {
       const fetchData = async () => {
-        const response = await fetch('https://9ea8a0e7-683e-4607-abbd-abaa1abf204a.mock.pstmn.io/linelisting');
+        const response = await fetch('https://ximqh5cncg.execute-api.us-east-1.amazonaws.com/dev/linelisting');
         const jsonData = await response.json();
-        console.log(jsonData);
         setMenuItem(jsonData.menuItems);
-        console.log(jsonData.menuItems);
         setData(jsonData);
       };
   
