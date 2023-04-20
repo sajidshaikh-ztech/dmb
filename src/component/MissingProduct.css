@@ -1,0 +1,13 @@
+
+.missing-item {
+  padding: 20px;
+  width: 250px;
+  border: 6px dashed red;
+  height: 250px;
+  font-size: 2em;
+  color: red;
+  text-align: center;
+}
+.missing-item p {
+  padding: 30px;
+}
